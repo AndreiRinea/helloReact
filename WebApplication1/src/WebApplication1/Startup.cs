@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using React.AspNet;
 using Microsoft.AspNetCore.Http;
+using React.AspNet;
 
 namespace helloReact
 {
@@ -14,7 +14,7 @@ namespace helloReact
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
@@ -27,7 +27,6 @@ namespace helloReact
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddReact();
-
             // Add framework services.
             services.AddMvc();
         }

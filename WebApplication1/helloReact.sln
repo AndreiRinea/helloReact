@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A562A384-DACC-41FC-864C-77A89B51A682}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E665A277-5EE3-4430-B55B-E76A21B6C5FA}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "helloReact", "src\WebApplication1\helloReact.xproj", "{CE32CE53-F2CC-4EF3-878C-21C33ED75142}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE32CE53-F2CC-4EF3-878C-21C33ED75142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE32CE53-F2CC-4EF3-878C-21C33ED75142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE32CE53-F2CC-4EF3-878C-21C33ED75142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE32CE53-F2CC-4EF3-878C-21C33ED75142}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CE32CE53-F2CC-4EF3-878C-21C33ED75142} = {A562A384-DACC-41FC-864C-77A89B51A682}
+	EndGlobalSection
+EndGlobal
