@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using helloReact.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace helloReact.Controllers
 {
     public class HomeController : Controller
     {
+        private static readonly List<CommentModel> _comments = new List<CommentModel>();
+
+        static HomeController()
+        {
+            _comments.Add(new CommentModel { Id = 1, Author = "Teacher", Text = "Keep on learning!" });
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -31,6 +40,13 @@ namespace helloReact.Controllers
         public IActionResult Feedback()
         {
             return View();
+        }
+
+        [Route("comments")]
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
+        public ActionResult Comments()
+        {
+            return Json(_comments);
         }
     }
 }

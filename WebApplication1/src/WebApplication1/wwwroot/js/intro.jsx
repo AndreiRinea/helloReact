@@ -33,6 +33,18 @@ var CommentForm = React.createClass({
 });
 
 var CommentBox = React.createClass({
+    getInitialState: function() {
+        return { data: [] };
+    },
+    componentWillMount: function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', this.props.url, true);
+        xhr.onload = function () {
+            var data = JSON.parse(xhr.responseText);
+            this.setState({ data: data });
+        }.bind(this);
+        xhr.send();
+    },
     render: function () {
         return (
           <div className="commentBox">
@@ -40,7 +52,7 @@ var CommentBox = React.createClass({
                 <h3>Comments</h3>
               <br />
               <br />
-                <CommentList data={this.props.data} />
+                <CommentList data={this.state.data} />
                 <hr />
                 <CommentForm />
           </div>
@@ -50,13 +62,7 @@ var CommentBox = React.createClass({
 
 //////////////////////==================
 
-var data = [
-    { id: 1, author: "Jim Beam", text: "Have fun!" },
-    { id: 2, author: "Jonnie Walker", text: "Keep going :)" },
-    { id: 3, author: "Jack Daniels", text: "Just like in Tennessee.." }
-];
-
 ReactDOM.render(
-  <CommentBox data={data} />,
+  <CommentBox url="/comments" />,
   document.getElementById('content')
 );
