@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using helloReact.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,6 +48,15 @@ namespace helloReact.Controllers
         public ActionResult Comments()
         {
             return Json(_comments);
+        }
+
+        [Route("comments/new")]
+        [HttpPost]
+        public ActionResult AddComment(CommentModel comment)
+        {
+            comment.Id = _comments.Select(c => c.Id).Max() + 1;
+            _comments.Add(comment);
+            return Content("Success :)");
         }
     }
 }
